@@ -1,0 +1,24 @@
+@import '../colors.scss';
+
+.navbar-center{
+    flex-grow: 1; 
+    justify-content: center;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; /* Este número puede ser cualquier valor mayor que el z-index de los demás elementos */
+  }
+
+// .navbar-vertical-line{
+//     // //border-right-style: solid;
+//     // border-right: 2px solid;
+//     // //position: absolute;
+//     // top: 50%;
+//     // bottom: 0;
+//     //border-image: linear-gradient();
+//     border-image: linear-gradient(top, #000 50%, rgba(0,0,0,0) 50%); /* to top - at 50
+// }

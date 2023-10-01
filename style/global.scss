@@ -1,0 +1,191 @@
+@import './colors.scss';
+@import './components/navbar.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+$danger: $app-color1;
+$theme-shadow: $app-color1;
+$card-radius: 0rem;
+
+$navbar-item-hover-color: white;
+$navbar-item-hover-background-color: $app-hover-color;
+$navbar-item-color: $app-color1;
+$menu-item-active-background-color: $app-color1;
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Franklin Gothic Medium','Franklin Gothic Heavy','Franklin Gothic Book Italic','Franklin Gothic Book','Franklin Gothic Heavy Italic','Franklin Gothic Medium','Franklin Gothic Demi','Arial Narrow', 'Arial', 'sans-serif';
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+.padding{
+  padding: 1rem;
+}
+
+.paralelograma {
+  width: 115%;
+  height: 10%;
+  top: 0;
+	left: 0;
+  -webkit-transform: skew(-20deg);
+     -moz-transform: skew(-20deg);
+       -o-transform: skew(-20deg);
+  }
+
+  .paralelograma2 {
+    width: 100%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(-20deg);
+       -moz-transform: skew(-20deg);
+         -o-transform: skew(-20deg);
+    }
+
+    .paralelograma3 {
+      width: 150%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      -webkit-transform: skew(-20deg);
+      -moz-transform: skew(-20deg);
+      -o-transform: skew(-20deg);
+      }
+
+.background-horizontal {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 50%);
+}
+
+
+.background-vertical {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 50%);
+}
+
+.centrar-webkit {
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  text-align: -o-center;
+  
+}
+
+@keyframes spin-horizontal {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes spin-horizontal-reverse {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.animate-spin-horizontal {
+  animation: spin-horizontal 5s linear infinite;
+}
+
+
+@media screen and (max-width: 1920px) {
+  .paralelograma3 {
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    }
+
+    .background-paralelograma {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 50%);
+    }
+
+}
+
+@media screen and (max-width: 1400px) {
+  .paralelograma3 {
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    }
+
+    .background-paralelograma {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 50%);
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+  .paralelograma3 {
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    }
+
+    .background-paralelograma {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 50%);
+    }
+
+}
+
+@media screen and (max-width: 660px) {
+  .paralelograma3 {
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    }
+
+    .background-paralelograma {
+      background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 50%);
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+  .paralelograma3 {
+    width: 150%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    }
+
+.background-paralelograma {
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1) 50%);
+}
+
+}

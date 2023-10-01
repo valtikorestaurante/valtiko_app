@@ -1,0 +1,32 @@
+{
+  "id": "home_section",
+  "label": "Home Section",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
+      "background_image": {
+        "type": "Image",
+        "config": {
+          "label": "Background Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "top_text": {
+        "type": "Text",
+        "config": { "label": "Top Text", "placeholder": "" }
+      },
+      "bottom_text": {
+        "type": "Text",
+        "config": { "label": "Bottom Text", "placeholder": "" }
+      },
+      "slogan_text": {
+        "type": "Text",
+        "config": { "label": "Slogan Text", "placeholder": "" }
+      }
+    }
+  }
+}

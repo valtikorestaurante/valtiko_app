@@ -1,0 +1,7 @@
+{
+  "apiEndpoint": "https://valtiko.cdn.prismic.io/api/v2",
+  "repositoryName": "valtiko",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}

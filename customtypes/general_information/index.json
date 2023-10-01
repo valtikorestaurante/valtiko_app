@@ -1,0 +1,48 @@
+{
+  "id": "general_information",
+  "label": "General Information",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
+      "small_logo": {
+        "type": "Image",
+        "config": { "label": "Small Logo", "constraint": {}, "thumbnails": [] }
+      },
+      "small_logo_width": {
+        "type": "Text",
+        "config": { "label": "Small Logo Width", "placeholder": "" }
+      },
+      "small_logo_height": {
+        "type": "Text",
+        "config": { "label": "Small Logo Height", "placeholder": "" }
+      },
+      "facebook_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Facebook Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "instagram_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Instagram Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "whatsapp_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Whatsapp Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

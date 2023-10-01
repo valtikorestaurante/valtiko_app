@@ -1,0 +1,32 @@
+{
+  "id": "seo",
+  "label": "SEO",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
+      "title": {
+        "type": "Text",
+        "config": { "label": "Title", "placeholder": "" }
+      },
+      "default_description": {
+        "type": "Text",
+        "config": { "label": "Default Description", "placeholder": "" }
+      },
+      "default_keywords": {
+        "type": "Text",
+        "config": { "label": "Default Keywords", "placeholder": "" }
+      },
+      "default_url": {
+        "type": "Text",
+        "config": { "label": "Default URL", "placeholder": "" }
+      },
+      "default_image": {
+        "type": "Text",
+        "config": { "label": "Default Image", "placeholder": "" }
+      }
+    }
+  }
+}
