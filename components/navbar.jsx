@@ -11,6 +11,8 @@ const NavBar = props => {
 
   const { content, logo, imageHeight, imageWidth, locales, actualLocale, customText, sloganText} = props
 
+  console.log(content)
+
   let navBarLinks = []
   const [isOpen, setOpen] = useState(true);
   const menuFlip = () => {setOpen(!isOpen)};
@@ -63,7 +65,7 @@ const NavBar = props => {
   return (
     <div className="flex flex-col">
       <div>
-        <nav className="xl:h-14 fixed flex inset-x-0 px-2 sm:px-4 xl:py-1 bg-white shadow-2xl w-full z-50">
+        <nav className="xl:h-14 fixed flex inset-x-0 px-2 sm:px-4 xl:py-1 bg-grey shadow-2xl w-full z-50">
           <div className="flex ml-3">
             <PrismicNextLink href="/#home" className="xl:mt-0 mt-1">
               <Image className="xl:scale-75 scale-90 xl:translate-x-20" src={logo} width={imageWidth} height={imageHeight} alt="VALTIKO-Logo"/>

@@ -26,7 +26,7 @@ const Homepage = props => {
             url={seo.data.default_url}
             ogImage={seo.data.default_image}
           />
-          {/* <NavBar
+          <NavBar
               content={menuContent.data.menu_links} 
               logo={generalInformation.data.small_logo.url}
               imageWidth={generalInformation.data.small_logo_width}
@@ -34,7 +34,7 @@ const Homepage = props => {
               locales={locales}
               actualLocale={actualLocale}
               // sloganText={homeContent.data.slogan_text}
-            /> */}
+            />
 
           <ConstructionPage/>
         </div>
@@ -46,8 +46,8 @@ const getStaticProps = async ({ params, locale, previewData }) => {
   return {
       props: {
         seo: await getPrismicData('seo', locale),
-        // generalInformation: await getPrismicData('general_information', locale),
-        // menuContent: await getPrismicData('menu', locale),
+        generalInformation: await getPrismicData('general_information', locale),
+        menuContent: await getPrismicData('menu', locale),
         // homeContent: await getPrismicData('home_section',locale),
         // rentContent: await getPrismicData('rent_section',locale),
         // shareContent: await getPrismicData('share_section',locale),

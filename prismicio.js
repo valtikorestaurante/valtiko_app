@@ -20,6 +20,7 @@ export const routes = [
   {
     type: "homepage",
     uid: "home",
+    path: '/',
   },
 ];
 
