@@ -17,6 +17,9 @@ const Homepage = props => {
     
   const { homeContent, actualLocale, locales, seo, generalInformation, menuContent, signUpContent } = props
   console.log(actualLocale)
+  console.log(seo)
+  console.log(generalInformation)
+  console.log(menuContent)
 
   return<div className="main overflow-x-hidden">
           <Head
