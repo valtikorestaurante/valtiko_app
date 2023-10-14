@@ -4,6 +4,24 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+interface CocktailDocumentData {}
+
+/**
+ * Cocktail document from Prismic
+ *
+ * - **API ID**: `cocktail`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CocktailDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CocktailDocumentData>,
+    "cocktail",
+    Lang
+  >;
+
 /**
  * Content for General Information documents
  */
@@ -73,6 +91,17 @@ interface GeneralInformationDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   whatsapp_logo: prismic.ImageField<never>;
+
+  /**
+   * Background field in *General Information*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: general_information.background
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background: prismic.ImageField<never>;
 }
 
 /**
@@ -210,6 +239,90 @@ export type MenuDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<MenuDocumentData>, "menu", Lang>;
 
 /**
+ * Content for Platos documents
+ */
+interface PlatosDocumentData {
+  /**
+   * Plato Imagen field in *Platos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: platos.plato_imagen
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  plato_imagen: prismic.ImageField<never>;
+
+  /**
+   * Plato Descripcion field in *Platos*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: platos.plato_descripcion
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  plato_descripcion: prismic.RichTextField;
+
+  /**
+   * Plato Titulo field in *Platos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: platos.plato_titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  plato_titulo: prismic.KeyTextField;
+
+  /**
+   * Plato Precio field in *Platos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: platos.plato_precio
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  plato_precio: prismic.KeyTextField;
+
+  /**
+   * Seccion Recomendados field in *Platos*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: platos.seccion_recomendados
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  seccion_recomendados: prismic.BooleanField;
+
+  /**
+   * Plato Categoria field in *Platos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: platos.plato_categoria
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  plato_categoria: prismic.KeyTextField;
+}
+
+/**
+ * Platos document from Prismic
+ *
+ * - **API ID**: `platos`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PlatosDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PlatosDocumentData>, "platos", Lang>;
+
+/**
  * Content for SEO documents
  */
 interface SeoDocumentData {
@@ -282,9 +395,11 @@ export type SeoDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<SeoDocumentData>, "seo", Lang>;
 
 export type AllDocumentTypes =
+  | CocktailDocument
   | GeneralInformationDocument
   | HomeSectionDocument
   | MenuDocument
+  | PlatosDocument
   | SeoDocument;
 
 declare module "@prismicio/client" {
@@ -297,12 +412,16 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CocktailDocument,
+      CocktailDocumentData,
       GeneralInformationDocument,
       GeneralInformationDocumentData,
       HomeSectionDocument,
       HomeSectionDocumentData,
       MenuDocument,
       MenuDocumentData,
+      PlatosDocument,
+      PlatosDocumentData,
       SeoDocument,
       SeoDocumentData,
       AllDocumentTypes,

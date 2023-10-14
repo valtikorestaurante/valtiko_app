@@ -25,17 +25,29 @@ const Homepage = props => {
             url={seo.data.default_url}
             ogImage={seo.data.default_image}
           />
-          <NavBar
-              content={menuContent.data.menu_links} 
-              logo={generalInformation.data.small_logo.url}
-              imageWidth={generalInformation.data.small_logo_width}
-              imageHeight={generalInformation.data.small_logo_height}
-              locales={locales}
-              actualLocale={actualLocale}
-              // sloganText={homeContent.data.slogan_text}
-            />
 
-          <ConstructionPage/>
+          <div className="bg-cover bg-center h-full w-screen" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}>
+            <NavBar
+                content={menuContent.data.menu_links} 
+                logo={generalInformation.data.small_logo.url}
+                imageWidth={generalInformation.data.small_logo_width}
+                imageHeight={generalInformation.data.small_logo_height}
+                locales={locales}
+                actualLocale={actualLocale}
+              />
+
+              <div className="mt-40 text-center  flex-col w-screen">
+                  <div className="">
+                    <div className="text-3xl text-orange-600 valtiko-style">MUY PRONTO</div>
+                    <div className="text-3xl text-white valtiko-style">Desatamos la furia de los sabores mas salvajes</div>
+                  </div> 
+              </div>
+
+              <ConstructionPage/>
+
+          </div>
+
+
         </div>
 }
 

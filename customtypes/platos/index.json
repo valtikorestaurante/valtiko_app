@@ -1,0 +1,50 @@
+{
+  "id": "platos",
+  "label": "Platos",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "plato_imagen": {
+        "type": "Image",
+        "config": {
+          "label": "Plato Imagen",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "plato_descripcion": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Plato Descripcion",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "plato_titulo": {
+        "type": "Text",
+        "config": { "label": "Plato Titulo", "placeholder": "" }
+      },
+      "plato_precio": {
+        "type": "Text",
+        "config": { "label": "Plato Precio", "placeholder": "" }
+      },
+      "seccion_recomendados": {
+        "type": "Boolean",
+        "config": {
+          "label": "Seccion Recomendados",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
+      },
+      "plato_categoria": {
+        "type": "Text",
+        "config": { "label": "Plato Categoria", "placeholder": "" }
+      }
+    }
+  }
+}
