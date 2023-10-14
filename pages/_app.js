@@ -6,14 +6,20 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import 'tailwindcss/tailwind.css'
 import { ThemeProvider } from "@material-tailwind/react";
 import Vikingfont from 'next/font/local'
-import { Zeyada } from 'next/font/google'
+// import { Zeyada } from 'next/font/google'
 
-const zeyada =  Zeyada({
-  subsets: ['latin'],
-  weight: '400',
+const vikingfont = Vikingfont({
+  src: '../fonts/VikingMedium.ttf',
   display: 'swap',
-  variable: '--font-zeyada',
+  variable: '--font-viking'
 })
+
+// const zeyada =  Zeyada({
+//   subsets: ['latin'],
+//   weight: '400',
+//   display: 'swap',
+//   variable: '--font-zeyada',
+// })
 
 
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
@@ -21,7 +27,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 function MyApp({ Component, pageProps }) {
     return (
         // <ThemeProvider>
-          <div className={`${zeyada.className}`}>
+          <div className={`${vikingfont.variable}`}>
             <Component {...pageProps} />
           </div>
         // </ThemeProvider>
