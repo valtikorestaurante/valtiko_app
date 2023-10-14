@@ -33,7 +33,7 @@ module.exports = withMT({
     
     extend: {
       fontFamily: {
-        sans: ['var(--font-viking)']
+        "viking": "var(--font-vikingo)", 
       },
 
       textShadow: {

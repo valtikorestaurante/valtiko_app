@@ -5,14 +5,30 @@ import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CS
 import { config } from "@fortawesome/fontawesome-svg-core";
 import 'tailwindcss/tailwind.css'
 import { ThemeProvider } from "@material-tailwind/react";
-import Vikingfont from 'next/font/local'
-// import { Zeyada } from 'next/font/google'
 
+import Vikingfont from 'next/font/local'
+import { New_Rocker } from 'next/font/google'
+import { Caesar_Dressing } from 'next/font/google'
+import { Macondo_Swash_Caps } from 'next/font/google'
+
+
+
+
+// const vikingfont = Vikingfont({ 
+//   src: '../fonts/VikingMedium.ttf' 
+// })
+
+	
 const vikingfont = Vikingfont({
-  src: '../fonts/VikingMedium.ttf',
-  display: 'swap',
-  variable: '--font-viking'
-})
+    src: [
+      {
+        path: '../fonts/VikingMedium.ttf',
+        weight: '500',
+        style: 'normal',
+      },
+    ],
+    variable: '--font-vikingo',
+  });
 
 // const zeyada =  Zeyada({
 //   subsets: ['latin'],

@@ -36,10 +36,10 @@ const Homepage = props => {
                 actualLocale={actualLocale}
               />
 
-              <div className="mt-40 text-center  flex-col w-screen">
+              <div className="mt-40 text-center  flex-col w-screen font-viking">
                   <div className="">
-                    <div className="text-3xl text-orange-600 valtiko-style">MUY PRONTO</div>
-                    <div className="text-3xl text-white valtiko-style">Desatamos la furia de los sabores mas salvajes</div>
+                    <div className="text-3xl text-orange-600 font-viking">MUY PRONTO</div>
+                    <div className="text-3xl text-white font-viking">Desatamos la furia de los sabores mas salvajes</div>
                   </div> 
               </div>
 
