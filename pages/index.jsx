@@ -3,7 +3,7 @@ import React from "react";
 // Components Importations Section 
 import Head from "../components/head";
 import NavBar from "../components/navbar";
-import HomeSection from '../components/sections/homeSection';
+import Footer from "../components/footer"
 
 import Prismic from 'prismic-javascript'
 import { PrismicClient } from '../prismic-configuration'
@@ -26,7 +26,7 @@ const Homepage = props => {
             ogImage={seo.data.default_image}
           />
 
-          <div className="bg-cover bg-center h-full w-screen" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}>
+          <div className="bg-cover bg-center h-screen w-screen" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}>
             <NavBar
                 content={menuContent.data.menu_links} 
                 logo={generalInformation.data.small_logo.url}
@@ -35,19 +35,14 @@ const Homepage = props => {
                 locales={locales}
                 actualLocale={actualLocale}
               />
-
               <div className="mt-40 text-center  flex-col w-screen font-viking">
                   <div className="">
                     <div className="text-3xl text-orange-600 font-viking">MUY PRONTO</div>
                     <div className="text-3xl text-white font-viking">Desatamos la furia de los sabores mas salvajes</div>
                   </div> 
               </div>
-
-              <ConstructionPage/>
-
+              {/* <Footer/> */}
           </div>
-
-
         </div>
 }
 
