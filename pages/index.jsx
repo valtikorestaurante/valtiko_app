@@ -4,6 +4,7 @@ import React from "react";
 import Head from "../components/head";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer"
+import RecomendedPlatesSection from "../components/sections/recomendedPlatesSection";
 
 import Prismic from 'prismic-javascript'
 import { PrismicClient } from '../prismic-configuration'
@@ -15,9 +16,7 @@ import ConstructionPage from './construction';
 
 const Homepage = props => {
     
-  const { homeContent, actualLocale, locales, seo, generalInformation, menuContent, signUpContent } = props
-
-  console.log(generalInformation)
+  const { platesContent, actualLocale, locales, seo, generalInformation, menuContent, signUpContent } = props
 
   return<div className="main overflow-x-hidden">
           <Head
@@ -39,7 +38,7 @@ const Homepage = props => {
 
           <div className="fixed w-full">
                 <video muted autoPlay loop playsInline control='' className="video">
-                  <source src={generalInformation.data.video_background.url} type="video/mp4" />
+                  <source src={generalInformation.data.video_background} type="video/mp4" />
                 </video>
                 <div className="fixed inset-0  opacity-20 w-full h-full object-fill video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
           </div>
@@ -50,6 +49,8 @@ const Homepage = props => {
                   <div className="text-3xl text-white font-viking">Desatamos la furia de los sabores mas salvajes</div>
                 </div> 
             </div>
+            <RecomendedPlatesSection items={platesContent}/>
+
             <ConstructionPage/>
             {/* <Footer/> */}
           </div>
@@ -65,7 +66,7 @@ const getStaticProps = async ({ params, locale, previewData }) => {
         seo: await getPrismicData('seo', locale),
         generalInformation: await getPrismicData('general_information', locale),
         menuContent: await getPrismicData('menu', locale),
-        // homeContent: await getPrismicData('home_section',locale),
+        platesContent: await getPrismicCustomTypeData('platos',locale),
         // rentContent: await getPrismicData('rent_section',locale),
         // shareContent: await getPrismicData('share_section',locale),
         // aboutContent: await getPrismicData('about_section',locale),

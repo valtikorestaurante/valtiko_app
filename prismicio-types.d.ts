@@ -102,6 +102,17 @@ interface GeneralInformationDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background: prismic.ImageField<never>;
+
+  /**
+   * Video Background field in *General Information*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: general_information.video_background
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_background: prismic.KeyTextField;
 }
 
 /**
@@ -239,11 +250,11 @@ export type MenuDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<MenuDocumentData>, "menu", Lang>;
 
 /**
- * Content for Platos documents
+ * Content for Plato documents
  */
 interface PlatosDocumentData {
   /**
-   * Plato Imagen field in *Platos*
+   * Plato Imagen field in *Plato*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -254,7 +265,7 @@ interface PlatosDocumentData {
   plato_imagen: prismic.ImageField<never>;
 
   /**
-   * Plato Descripcion field in *Platos*
+   * Plato Descripcion field in *Plato*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -265,7 +276,7 @@ interface PlatosDocumentData {
   plato_descripcion: prismic.RichTextField;
 
   /**
-   * Plato Titulo field in *Platos*
+   * Plato Titulo field in *Plato*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -276,7 +287,7 @@ interface PlatosDocumentData {
   plato_titulo: prismic.KeyTextField;
 
   /**
-   * Plato Precio field in *Platos*
+   * Plato Precio field in *Plato*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -287,7 +298,7 @@ interface PlatosDocumentData {
   plato_precio: prismic.KeyTextField;
 
   /**
-   * Seccion Recomendados field in *Platos*
+   * Seccion Recomendados field in *Plato*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -299,7 +310,7 @@ interface PlatosDocumentData {
   seccion_recomendados: prismic.BooleanField;
 
   /**
-   * Plato Categoria field in *Platos*
+   * Plato Categoria field in *Plato*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -311,7 +322,7 @@ interface PlatosDocumentData {
 }
 
 /**
- * Platos document from Prismic
+ * Plato document from Prismic
  *
  * - **API ID**: `platos`
  * - **Repeatable**: `true`

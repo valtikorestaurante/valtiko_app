@@ -46,6 +46,10 @@
       "background": {
         "type": "Image",
         "config": { "label": "Background", "constraint": {}, "thumbnails": [] }
+      },
+      "video_background": {
+        "type": "Text",
+        "config": { "label": "Video Background", "placeholder": "" }
       }
     }
   }

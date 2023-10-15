@@ -1,6 +1,6 @@
 {
   "id": "platos",
-  "label": "Platos",
+  "label": "Plato",
   "format": "custom",
   "repeatable": true,
   "status": true,
