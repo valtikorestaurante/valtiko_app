@@ -6,10 +6,15 @@ const ItemBox = ({ element }) => {
     return (
     <Link href={`/producto/${queryString}`}>
         <div 
-            className="bg-cover bg-center shadow-2xl rounded-3xl"
+            className="xl:hover:bg-black xl:hover:opacity-75 bg-cover bg-center shadow-2xl rounded-xl"
             style={{backgroundImage: `url(${element.data.plato_imagen.url})`,}}>
-            <div className="box-border h-32 border-4 text-white font-viking">
-                {element.data.plato_titulo}
+            <div className="rounded-xl box-border h-32 border-4 text-white font-viking">
+                <div className=''>
+                    <div className='font-viking'>
+                        {element.data.plato_titulo}
+                    </div>
+                </div>
+                
             </div>
       </div>
     </Link>
