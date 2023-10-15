@@ -41,7 +41,7 @@ const Homepage = props => {
                 <video muted autoPlay loop playsInline control='' className="video">
                   <source src={generalInformation.data.video_background.url} type="video/mp4" />
                 </video>
-                <div className="fixed inset-0  opacity-20 w-full h-full object-fill" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
+                <div className="fixed inset-0  opacity-20 w-full h-full object-fill video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
           </div>
           <div id="home" className="xl:mt-40 mt-52 flex flex-col w-full relative">
             <div className="text-center flex-col w-screen font-viking">
