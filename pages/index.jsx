@@ -17,6 +17,8 @@ const Homepage = props => {
     
   const { homeContent, actualLocale, locales, seo, generalInformation, menuContent, signUpContent } = props
 
+  console.log(generalInformation)
+
   return<div className="main overflow-x-hidden">
           <Head
             title={seo.data.title}
@@ -26,23 +28,32 @@ const Homepage = props => {
             ogImage={seo.data.default_image}
           />
 
-          <div className="bg-cover bg-center h-screen w-screen" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}>
-            <NavBar
-                content={menuContent.data.menu_links} 
-                logo={generalInformation.data.small_logo.url}
-                imageWidth={generalInformation.data.small_logo_width}
-                imageHeight={generalInformation.data.small_logo_height}
-                locales={locales}
-                actualLocale={actualLocale}
-              />
-              <div className="mt-40 text-center  flex-col w-screen font-viking">
-                  <div className="">
-                    <div className="text-3xl text-orange-600 font-viking">MUY PRONTO</div>
-                    <div className="text-3xl text-white font-viking">Desatamos la furia de los sabores mas salvajes</div>
-                  </div> 
-              </div>
-              {/* <Footer/> */}
+          <NavBar
+            content={menuContent.data.menu_links} 
+            logo={generalInformation.data.small_logo.url}
+            imageWidth={generalInformation.data.small_logo_width}
+            imageHeight={generalInformation.data.small_logo_height}
+            locales={locales}
+            actualLocale={actualLocale}
+          />
+
+          <div className="fixed w-full">
+                <video muted autoPlay loop playsInline control='' className="video">
+                  <source src={generalInformation.data.video_background.url} type="video/mp4" />
+                </video>
+                <div className="fixed inset-0  opacity-20 w-full h-full object-fill" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
           </div>
+          <div id="home" className="xl:mt-40 mt-52 flex flex-col w-full relative">
+            <div className="text-center flex-col w-screen font-viking">
+                <div className="">
+                  <div className="text-3xl text-orange-600 font-viking">MUY PRONTO</div>
+                  <div className="text-3xl text-white font-viking">Desatamos la furia de los sabores mas salvajes</div>
+                </div> 
+            </div>
+            <ConstructionPage/>
+            {/* <Footer/> */}
+          </div>
+
         </div>
 }
 
