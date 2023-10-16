@@ -5,6 +5,8 @@ import Head from "../components/head";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer"
 import RecomendedPlatesSection from "../components/sections/recomendedPlatesSection";
+import RecomendedCocktailsSection from "../components/sections/recomendedCocktailsSection";
+
 
 import Prismic from 'prismic-javascript'
 import { PrismicClient } from '../prismic-configuration'
@@ -16,9 +18,7 @@ import ConstructionPage from './construction';
 
 const Homepage = props => {
     
-  const { platesContent, actualLocale, locales, seo, generalInformation, menuContent, signUpContent } = props
-
-  console.log(platesContent)
+  const { platesContent, actualLocale, locales, seo, generalInformation, menuContent, cocktailsContent } = props
 
   return<div className="main overflow-x-hidden">
           <Head
@@ -42,7 +42,7 @@ const Homepage = props => {
                 <video muted autoPlay loop playsInline control='' className="video">
                   <source src={generalInformation.data.video_background} type="video/mp4" />
                 </video>
-                <div className="fixed inset-0  opacity-20 w-full h-full object-fill video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
+                <div className="fixed inset-0  opacity-20 w-full h-full object-cover video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
           </div>
           <div id="home" className="xl:mt-40 mt-52 flex flex-col w-full relative">
             <div className="text-center flex-col w-screen font-viking">
@@ -52,6 +52,8 @@ const Homepage = props => {
                 </div> 
             </div>
             <RecomendedPlatesSection items={platesContent}/>
+
+            <RecomendedCocktailsSection items={cocktailsContent}/>
 
             <ConstructionPage/>
             {/* <Footer/> */}
@@ -69,7 +71,7 @@ const getStaticProps = async ({ params, locale, previewData }) => {
         generalInformation: await getPrismicData('general_information', locale),
         menuContent: await getPrismicData('menu', locale),
         platesContent: await getPrismicCustomTypeData('platos',locale),
-        // rentContent: await getPrismicData('rent_section',locale),
+        cocktailsContent: await getPrismicCustomTypeData('cocktail',locale),
         // shareContent: await getPrismicData('share_section',locale),
         // aboutContent: await getPrismicData('about_section',locale),
         // contactContent: await getPrismicData('contact_section',locale),

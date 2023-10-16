@@ -34,8 +34,6 @@ const IndividualPage = props => {
     }
   }, [product]);
 
-  console.log(item)
-
   return (<div className="main overflow-x-hidden">
   {/* <Head
     title={seo.data.title}
@@ -60,17 +58,21 @@ const IndividualPage = props => {
         </video>
         <div className="fixed inset-0  opacity-20 w-full h-full object-fill video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
   </div> */}
-  <div id="home" className="xl:mt-40 mt-52 flex flex-col w-full relative p-10">
+  <div id="home" className="xl:mt-40 mt-20 flex flex-col w-full relative p-10">
   <div>
       {item ? (
-        <div className="font-viking">
+        <div className="font-viking flex-col">
             <div className="font-viking text-orange-600 mb-10">
                 {item.data.plato_titulo}
             </div>
-          <h2>{item.data.plato_categoria}</h2>
+            <div className="mb-5">
+              {item.data.plato_categoria}
+            </div>
+            <div className="mb-5 font-viking">
+              {item.data.plato_precio}
+            </div>
         
-          <h2>{item.data.plato_precio}</h2>
-          <PrismicRichText field={item.data.plato_descripcion}/>
+            <PrismicRichText field={item.data.plato_descripcion}/>
 
           {/* Mostrar otros detalles del elemento */}
         </div>

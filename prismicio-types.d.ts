@@ -4,7 +4,77 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-interface CocktailDocumentData {}
+/**
+ * Content for Cocktail documents
+ */
+interface CocktailDocumentData {
+  /**
+   * Cocktail Imagen field in *Cocktail*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cocktail.cocktail_imagen
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cocktail_imagen: prismic.ImageField<never>;
+
+  /**
+   * Cocktail Descripcion field in *Cocktail*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cocktail.cocktail_descripcion
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cocktail_descripcion: prismic.RichTextField;
+
+  /**
+   * Cocktail Titulo field in *Cocktail*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cocktail.cocktail_titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cocktail_titulo: prismic.KeyTextField;
+
+  /**
+   * Cocktail Precio field in *Cocktail*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cocktail.cocktail_precio
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cocktail_precio: prismic.KeyTextField;
+
+  /**
+   * Seccion Recomendados field in *Cocktail*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cocktail.seccion_recomendados
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  seccion_recomendados: prismic.BooleanField;
+
+  /**
+   * Cocktail Categoria field in *Cocktail*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cocktail.cocktail_categoria
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cocktail_categoria: prismic.KeyTextField;
+}
 
 /**
  * Cocktail document from Prismic
