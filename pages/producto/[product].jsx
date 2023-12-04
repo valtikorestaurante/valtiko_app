@@ -15,27 +15,33 @@ import { getLocales } from "../../lib/getLocales";
 import { createClient } from "../../prismicio"
 
 
-const IndividualPage = props => {
-//   const { platesContent, actualLocale, locales, seo, generalInformation } = props
+const ProductPage = props => {
+  const { platesContent, actualLocale, locales, seo, generalInformation, menuContent } = props
 
   const router = useRouter();
-  const { product } = router.query;
   const [item, setItem] = useState(null);
+  const plateId = router.query.product;
+
 
   useEffect(() => {
-    if (product) {
-      // Deserializar la cadena JSON
+    if (platesContent) {
       try {
-        const parsedData = JSON.parse(product);
-        setItem(parsedData);
+        const foundItem = platesContent.find(plate => plate.id === plateId);
+        
+        // Verificar si se encontró el elemento y establecerlo en el estado
+        if (foundItem) {
+          setItem(foundItem);
+        } else {
+          console.warn('No se encontró ningún elemento con la ID proporcionada.');
+        }
       } catch (error) {
         console.error('Error al deserializar JSON:', error);
       }
     }
-  }, [product]);
+  }, [plateId, platesContent]);
 
   return (<div className="main overflow-x-hidden">
-  {/* <Head
+  <Head
     title={seo.data.title}
     description={seo.data.default_description}
     keywords={seo.data.default_keywords}
@@ -50,31 +56,30 @@ const IndividualPage = props => {
     imageHeight={generalInformation.data.small_logo_height}
     locales={locales}
     actualLocale={actualLocale}
-  /> */}
-{/* 
+  />
+
   <div className="fixed w-full">
         <video muted autoPlay loop playsInline control='' className="video">
           <source src={generalInformation.data.video_background} type="video/mp4" />
         </video>
-        <div className="fixed inset-0  opacity-20 w-full h-full object-fill video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
-  </div> */}
+        <div className="bg-cover bg-center fixed inset-0  opacity-40 w-full h-full object-fill video" style={{ backgroundImage: `url(${item && item.data.plato_imagen.url})` }}></div>
+  </div>
   <div id="home" className="xl:mt-40 mt-20 flex flex-col w-full relative p-10">
   <div>
       {item ? (
         <div className="font-viking flex-col">
-            <div className="font-viking text-orange-600 mb-10">
+            <div className="text-white font-viking text-orange-600 mb-10 text-4xl">
                 {item.data.plato_titulo}
             </div>
-            <div className="mb-5">
+            <div className="font-viking mb-5 text-white">
               {item.data.plato_categoria}
             </div>
-            <div className="mb-5 font-viking">
+            <div className="font-viking text-white mb-5 font-viking">
               {item.data.plato_precio}
             </div>
-        
-            <PrismicRichText field={item.data.plato_descripcion}/>
-
-          {/* Mostrar otros detalles del elemento */}
+            <div className="font-viking text-white">
+              <PrismicRichText  field={item.data.plato_descripcion}/>
+            </div>
         </div>
       ) : (
         <p>Cargando...</p>
@@ -90,44 +95,59 @@ const IndividualPage = props => {
   );
 };
 
-// const getStaticProps = async ({ params, locale, previewData }) => {
-//     const client = createClient({ previewData });
-//     const locales = await getLocales(client)
-//     return {
-//         props: {
-//           seo: await getPrismicData('seo', locale),
-//           generalInformation: await getPrismicData('general_information', locale),
-//           menuContent: await getPrismicData('menu', locale),
-//           platesContent: await getPrismicCustomTypeData('platos',locale),
-//           // rentContent: await getPrismicData('rent_section',locale),
-//           // shareContent: await getPrismicData('share_section',locale),
-//           // aboutContent: await getPrismicData('about_section',locale),
-//           // contactContent: await getPrismicData('contact_section',locale),
-//           // vehiclesContent: await getPrismicCustomTypeData('vehicle',locale),
-//           locales: locales,
-//           actualLocale: locale
-//         }
-//     }
-//   }
-  
-//   // Wrapper for prismic functions
-//   const getPrismicData = async (name, lang) => {
-//     const prismicAnswer = await PrismicClient().query(  
-//       Prismic.Predicates.at('document.type', name),{ lang })
-  
-//     // Get first doc of this type (there should be 1 doc per type)
-//     const doc = prismicAnswer.results[0]
-//     return doc
-//   }
-  
-//   const getPrismicCustomTypeData = async (name, lang) => {
-//     const prismicAnswer = await PrismicClient().query(  
-//       Prismic.Predicates.at('document.type', name), { lang })
-  
-//     // Get all docs of this type (there should many docs per type)
-//     const CustomTypeDoc = prismicAnswer.results
-//     return CustomTypeDoc
-//   }
-  
-  export default IndividualPage;
-//   export { getStaticProps }
+export async function getStaticPaths() {
+  const client = createClient({ previewData: null });
+  const locales = await getLocales(client);
+
+  // Obtén los IDs de cocktails de tu array cocktailsContent
+  const plateContent = [
+  ];
+
+  const paths = plateContent.map((plate) => {
+    return { params: { product: JSON.stringify({ id: plate.id, lang: plate.lang }) } };
+  });
+
+  // Devuelve las rutas
+  return {
+    paths,
+    fallback: false, // O 'blocking' si prefieres que las páginas se generen bajo demanda
+  };
+}
+
+const getStaticProps = async ({ params, locale, previewData }) => {
+  const client = createClient({ previewData });
+  const locales = await getLocales(client)
+  return {
+      props: {
+        seo: await getPrismicData('seo', locale),
+        generalInformation: await getPrismicData('general_information', locale),
+        menuContent: await getPrismicData('menu', locale),
+        platesContent: await getPrismicCustomTypeData('platos',locale),
+        cocktailsContent: await getPrismicCustomTypeData('cocktail',locale),
+        locales: locales,
+        actualLocale: locale
+      }
+  }
+}
+
+// Wrapper for prismic functions
+const getPrismicData = async (name, lang) => {
+  const prismicAnswer = await PrismicClient().query(  
+    Prismic.Predicates.at('document.type', name),{ lang })
+
+  // Get first doc of this type (there should be 1 doc per type)
+  const doc = prismicAnswer.results[0]
+  return doc
+}
+
+const getPrismicCustomTypeData = async (name, lang) => {
+  const prismicAnswer = await PrismicClient().query(  
+    Prismic.Predicates.at('document.type', name), { lang })
+
+  // Get all docs of this type (there should many docs per type)
+  const CustomTypeDoc = prismicAnswer.results
+  return CustomTypeDoc
+}
+
+export default ProductPage
+export { getStaticProps }

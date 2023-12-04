@@ -92,6 +92,24 @@ export type CocktailDocument<Lang extends string = string> =
     Lang
   >;
 
+interface FooterDocumentData {}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
 /**
  * Content for General Information documents
  */
@@ -183,6 +201,28 @@ interface GeneralInformationDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   video_background: prismic.KeyTextField;
+
+  /**
+   * lina_rose field in *General Information*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: general_information.lina_rose
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  lina_rose: prismic.ImageField<never>;
+
+  /**
+   * hacha field in *General Information*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: general_information.hacha
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hacha: prismic.ImageField<never>;
 }
 
 /**
@@ -477,6 +517,7 @@ export type SeoDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | CocktailDocument
+  | FooterDocument
   | GeneralInformationDocument
   | HomeSectionDocument
   | MenuDocument
@@ -495,6 +536,8 @@ declare module "@prismicio/client" {
     export type {
       CocktailDocument,
       CocktailDocumentData,
+      FooterDocument,
+      FooterDocumentData,
       GeneralInformationDocument,
       GeneralInformationDocumentData,
       HomeSectionDocument,

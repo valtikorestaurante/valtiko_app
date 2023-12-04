@@ -4,7 +4,7 @@ const CocktailBox = ({ element }) => {
     const queryString = encodeURIComponent(JSON.stringify(element));
   
     return (
-    <Link href={`/cocktail/${queryString}`}>
+    <Link href={`/cocktail/${element.id}`}>
         <div 
             className="bg-cover bg-center shadow-2xl rounded-xl box-border"
             style={{backgroundImage: `url(${element.data.cocktail_imagen.url})`,}}>

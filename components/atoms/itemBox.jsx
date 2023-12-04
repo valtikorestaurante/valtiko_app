@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 const ItemBox = ({ element }) => {
-    const queryString = encodeURIComponent(JSON.stringify(element));
+    // const queryString = encodeURIComponent(JSON.stringify(element));
   
     return (
-    <Link href={`/producto/${queryString}`}>
+    <Link href={`/producto/${element.id}`}>
         <div 
             className="bg-cover bg-center shadow-2xl rounded-xl box-border"
             style={{backgroundImage: `url(${element.data.plato_imagen.url})`,}}>

@@ -6,7 +6,7 @@ import NavBar from "../components/navbar";
 import Footer from "../components/footer"
 import RecomendedPlatesSection from "../components/sections/recomendedPlatesSection";
 import RecomendedCocktailsSection from "../components/sections/recomendedCocktailsSection";
-
+import Image from 'next/image'
 
 import Prismic from 'prismic-javascript'
 import { PrismicClient } from '../prismic-configuration'
@@ -14,6 +14,8 @@ import { getLocales } from "../lib/getLocales";
 import { createClient } from "../prismicio"
 
 import ConstructionPage from './construction';
+
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 
 const Homepage = props => {
@@ -42,21 +44,62 @@ const Homepage = props => {
                 <video muted autoPlay loop playsInline control='' className="video">
                   <source src={generalInformation.data.video_background} type="video/mp4" />
                 </video>
-                <div className="fixed inset-0  opacity-20 w-full h-full object-cover video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
+                <div className="bg-cover bg-center fixed inset-0  opacity-50 w-full h-full object-cover video" style={{ backgroundImage: `url('/background/background_acero.jpg')`}}></div>
           </div>
-          <div id="home" className="xl:mt-40 mt-52 flex flex-col w-full relative">
-            <div className="text-center flex-col w-screen font-viking">
-                <div className="">
-                  <div className="text-3xl text-orange-600 font-viking">Muy Pronto</div>
-                  <div className="text-3xl text-white font-viking">Desatamos la furia de los sabores mas salvajes</div>
-                </div> 
+          <div className="w-full">
+            <div id="home" className="xl:mt-40 mt-32 flex flex-col w-full relative">
+              <div className="text-center flex-col w-screen font-viking">
+                  <div className="">
+                    <div className="text-3xl text-orange-600 font-viking z-50">Muy Pronto</div>
+                    <div className="relative text-3xl text-white font-viking pr-5 pl-5 z-50">Desatamos la furia de los sabores mas salvajes</div>
+                  </div> 
+              </div>
+              
+              <Image
+                  src={generalInformation.data.lina_rose.url}
+                  width={200}
+                  height={200}
+                  alt="Picture of the author"
+                  className="rotate-45 absolute xl:-translate-x-2 -translate-x-32 z-40"
+                />
+
+              <RecomendedPlatesSection items={platesContent}/>
+              
+              <Image
+                  src={generalInformation.data.hacha.url}
+                  width={300}
+                  height={300}
+                  alt="Picture of the author"
+                  className="rotate-45 self-center z-40"
+                />
+              <RecomendedCocktailsSection items={cocktailsContent}/>
+
+
+              {/* <ConstructionPage/> */}
+
+
+              <FloatingWhatsApp
+                  phoneNumber="+573142041587"
+                  accountName="Cristian - El Vikingo"
+                  allowEsc
+                  allowClickAway
+                  notification
+                  notificationSound
+                  chatMessage={
+                    <div>
+                      Hola! 🤝
+                      <br />
+                      Qué vas a ordenar hoy?
+                    </div>
+                  }
+                  placeholder="Escribe tu mensaje"
+                  statusMessage="En linea"
+                  avatar={'/static/avatar25.png'}
+          />
+
+
+              <Footer footerContent={""}/>
             </div>
-            <RecomendedPlatesSection items={platesContent}/>
-
-            <RecomendedCocktailsSection items={cocktailsContent}/>
-
-            <ConstructionPage/>
-            {/* <Footer/> */}
           </div>
 
         </div>

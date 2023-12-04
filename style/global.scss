@@ -15,11 +15,14 @@ $navbar-item-hover-background-color: $app-hover-color;
 $navbar-item-color: $app-color1;
 $menu-item-active-background-color: $app-color1;
 
+:root {
+  font-family: 'viking';
+}
+
 * {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  font-family: 'sans';
 }
 
 .main {

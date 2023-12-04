@@ -50,6 +50,14 @@
       "video_background": {
         "type": "Text",
         "config": { "label": "Video Background", "placeholder": "" }
+      },
+      "lina_rose": {
+        "type": "Image",
+        "config": { "label": "lina_rose", "constraint": {}, "thumbnails": [] }
+      },
+      "hacha": {
+        "type": "Image",
+        "config": { "label": "hacha", "constraint": {}, "thumbnails": [] }
       }
     }
   }

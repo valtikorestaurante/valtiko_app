@@ -1,43 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este es un proyecto de [Next.js](https://nextjs.org/) creado con [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
-Este es un proyecto creado por Gluonico. Basándonos en arquitecturas Jamstack, usando Next.JS para generación de aplicación SSR y generar contenido estático usando CMS Headless para almacenamiento de contenido. Esta aplicación está alojada en Vercel.
+## Empezando
+Este proyecto fue iniciado por Gluonico. Utiliza arquitecturas Jamstack, empleando Next.JS para generar aplicaciones SSR y contenido estático mediante CMS Headless para el almacenamiento de contenido. La aplicación está alojada en Vercel.
 
 Para VALTIKO - Cristian Giraldo
 
 npm install
 
-First, run the development server:
+Primero, ejecuta el servidor de desarrollo:
 
 npm run dev
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Puedes comenzar a editar la página modificando `pages/index.js`. La página se actualiza automáticamente a medida que editas el archivo.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Las [rutas de API](https://nextjs.org/docs/api-routes/introduction) están disponibles en [http://localhost:3000/api/hello](http://localhost:3000/api/hello). Este endpoint se puede editar en `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+El directorio `pages/api` está mapeado a `/api/*`. Los archivos en este directorio se tratan como [rutas de API](https://nextjs.org/docs/api-routes/introduction) en lugar de páginas React.
 
 ## Otras Integraciones
 
-Es necesario conectar el proyecto con la cuenta de vercel. 
-El proyecto debe estar alojado en un repositorio. Github en este caso.
-Y posteriormente debe relacionarse el proyecto en Vercel con el repositorio en Github. Esto se hace desde configuración de proyecto en Vercel.com.
+Es necesario conectar el proyecto con la cuenta de Vercel. El proyecto debe estar alojado en un repositorio, en este caso, Github. Luego, el proyecto en Vercel debe vincularse con el repositorio en Github, lo cual se hace desde la configuración del proyecto en Vercel.com.
 
-Este proyecto usa Prismic, como proveedor CMS Headless.
-La conexion con prismic se realiza en prismic-configuration.js. Accediendo a las variables, que deben estar configuradas en el archivo .env.local.
+Este proyecto utiliza Prismic como proveedor de CMS Headless. La conexión con Prismic se realiza en `prismic-configuration.js`, accediendo a las variables que deben configurarse en el archivo `.env.local`. (Es importante para la seguridad del proyecto, ya que se utilizan variables de entorno.)
 
-## Agregar y modificar tipos de datos en pismic
+## Agregar y modificar tipos de datos en Prismic
 
-Es necesario instalar y ejecutar slicemachine.
-Es una consola gráfica, que se ejecuta en el puerto :9000, para editar, agregar, custom Types.
-Para agregar información y creación de instancias de esos custom Types, se hace por medio web prismic.io
+Es necesario instalar y ejecutar SliceMachine. Es una consola gráfica que se ejecuta en el puerto: 9000 y que permite editar, agregar y personalizar tipos. Para agregar información y crear instancias de esos tipos personalizados, se realiza a través de la web prismic.io.
 
-## Deploy on Vercel
+## Implementación en Vercel
 
-Los valores de las variables de entorno, alojadas en .env.local, deben estar agregados en la configuración de proyecto.
+Los valores de las variables de entorno, alojados en `.env.local`, deben agregarse a la configuración del proyecto.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La forma más sencilla de implementar tu aplicación Next.js es utilizar la [Plataforma Vercel](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) de los creadores de Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Consulta nuestra [documentación de implementación de Next.js](https://nextjs.org/docs/deployment) para obtener más detalles.
+
+Este proyecto utiliza un tipo de letra especial llamado Vikingo. Su nombre es: Celtic Garamond the 2nd, y se encuentra en la carpeta FONTS con el nombre VikingMedium.ttf.
